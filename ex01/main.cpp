@@ -5,29 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: samuele <samuele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 23:13:09 by samuele           #+#    #+#             */
-/*   Updated: 2024/12/23 23:25:00 by samuele          ###   ########.fr       */
+/*   Created: 2024/12/23 23:24:19 by samuele           #+#    #+#             */
+/*   Updated: 2024/12/23 23:39:51 by samuele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "templateFunctions.hpp"
+#include <iostream>
+#include "iter.hpp"
 
 int main()
 {
-    int a = 2;
-    int b = 3;
+    int array[] = {1, 2, 3, 4, 5};
+    iter(array, 5, add42);
+    for (int i = 0; i < 5; i++)
+        std::cout << array[i] << std::endl;
+
+    std::string array2[] = {"Ciao", "Effi", "Tiago"};
+    iter(array2, 3, add42);
+    for (int i = 0; i < 3; i++)
+        std::cout << array2[i] << std::endl;
     
-    ::swap(a, b);
-    std::cout << "a = " << a << ", b = " << b << std::endl;
-    std::cout << "min(a, b) = " << ::min(a, b) << std::endl;
-    std::cout << "max(a, b) = " << ::max(a, b) << std::endl;
-    
-    std::string c = "chaine1";
-    std::string d = "chaine2";
-    
-    ::swap(c, d);
-    std::cout << "c = " << c << ", d = " << d << std::endl;
-    std::cout << "min(c, d) = " << ::min(c, d) << std::endl;
-    std::cout << "max(c, d) = " << ::max(c, d) << std::endl;
     return 0;
 }
