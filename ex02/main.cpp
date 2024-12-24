@@ -1,5 +1,10 @@
 #include <iostream>
-#include <Array.hpp>
+#include <ctime>
+#include <cstdlib>
+#include "Array.hpp"
+
+template <typename T>
+void printArray(Array<T> &array);
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -17,6 +22,17 @@ int main(int, char**)
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
+
+        tmp[0] = 42;
+        for (int i = 0; i < MAX_VAL; i++)
+        {
+            if (tmp[i] != numbers[i] || tmp[i] != test[i])
+            {
+                std::cout << "numbers[" << i << "] = " << numbers[i] << std::endl;
+                std::cout << "tmp[" << i << "] = " << tmp[i] << std::endl;
+                std::cout << "test[" << i << "] = " << test[i] << std::endl;
+            }
+        }
     }
 
     for (int i = 0; i < MAX_VAL; i++)
@@ -48,6 +64,28 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete [] mirror;
+
+    std::cout << std::endl;
+
+    Array<std::string> strings;
+    std::cout << "strings size: " << strings.size() << std::endl;
+    printArray(strings);
+    std::cout << std::endl;
+    strings = Array<std::string>(5);
+    std::cout << "strings size: " << strings.size() << std::endl;
+    printArray(strings);
+    std::cout << std::endl;
+    for (unsigned int i = 0; i < strings.size(); i++)
+        strings[i] = numbers[i] % 2 == 0 ? "even" : "odd";
+    printArray(strings);
+
     return 0;
+}
+
+template <typename T>
+void printArray(Array<T> &array)
+{
+    for (unsigned int i = 0; i < array.size(); i++)
+        std::cout << "array[" << i << "] = " << array[i] << std::endl;
 }
