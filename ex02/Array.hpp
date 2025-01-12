@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samuele <samuele@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sdell-er <sdell-er@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 23:41:08 by samuele           #+#    #+#             */
-/*   Updated: 2024/12/24 18:03:33 by samuele          ###   ########.fr       */
+/*   Updated: 2025/01/12 12:39:57 by sdell-er         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Array
         unsigned int size() const;
 
         T &operator[](unsigned int index);
+        const T &operator[](unsigned int index) const;
         
         class OutOfBoundsException : public std::exception
         {

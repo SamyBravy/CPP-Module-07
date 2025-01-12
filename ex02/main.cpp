@@ -80,6 +80,11 @@ int main(int, char**)
         strings[i] = numbers[i] % 2 == 0 ? "even" : "odd";
     printArray(strings);
 
+	const Array<int> constNumbers(numbers);
+	std::cout << std::endl;
+	std::cout << constNumbers[0] << std::endl;
+	// constNumbers[0] = 42; // should not compile
+
     return 0;
 }
 

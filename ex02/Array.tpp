@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samuele <samuele@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sdell-er <sdell-er@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 23:41:41 by samuele           #+#    #+#             */
-/*   Updated: 2024/12/24 18:05:13 by samuele          ###   ########.fr       */
+/*   Updated: 2025/01/12 12:39:59 by sdell-er         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,15 @@ unsigned int Array<T>::size() const
 
 template <typename T>
 T &Array<T>::operator[](unsigned int index)
+{
+    if (index >= _n)
+        throw Array::OutOfBoundsException();
+    
+    return _elements[index];
+}
+
+template <typename T>
+const T &Array<T>::operator[](unsigned int index) const
 {
     if (index >= _n)
         throw Array::OutOfBoundsException();
